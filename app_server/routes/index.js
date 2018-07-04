@@ -1,9 +1,14 @@
 var express = require('express');
 var router = express.Router();
-const index = require('../controllers/main').index
+const ctrlLocations = require('../controllers/location')
+const ctrlOthers = require('../controllers/others');
 
 
 /* GET home page. */
-router.get('/', index);
+router.get('/', ctrlLocations.homeList);
+router.get('/location', ctrlLocations.locationInfo);
+router.get('/location/review/new', ctrlLocations.addReview);
+
+router.get('/about', ctrlOthers.about)
 
 module.exports = router;
